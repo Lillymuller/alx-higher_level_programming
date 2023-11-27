@@ -15,13 +15,13 @@ int check_cycle(listint_t *list)
 
 	while (1)
 	{
-		/*traverse(move) through nodes as long as linked list node exists*/
+		/*traversed moving through nodes as long as linked list node exists*/
 		if (Adu->next != NULL && Adu->next->next != NULL)
 		{
 			Adu = Adu->next->next;
 			Edu = Edu->next;
 
-			if (Adu == Edu) /*if nodes match, cycle found*/
+			if (Adu == Edu)
 				return (1);
 		}
 		else
