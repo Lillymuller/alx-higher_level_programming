@@ -1,6 +1,5 @@
 #include "lists.h"
 #include <stdlib.h>
-#include <stddef.h>
 
 /**
  * insert_node - Insert node into sorted singly linked list
@@ -11,62 +10,38 @@
 
 listint_t *insert_node(listint_t **head, int number)
 {
-	listint_t *old = NULL;
-	listint_t *new = NULL;
+	listint_t *new, *old = *head;
+	unsigned int i = 0;
 
-	if (head == NULL)
-		return (NULL);
-
-/*allocating memory for new node */
-	new = malloc(sizeof(listint_t));
-	if (new == NULL)
-		return (NULL);
-	new->n = number;
-	new->next = NULL;
-
-	/* if there is no linked list, creat node */
-	if (*head == NULL)
+	if (!(old) || (*old).n > number)
 	{
+		new = malloc(sizeof(listint_t));
+		if (new == NULL)
+			return (NULL);
+
+		(*new).n = number;
+		(*new).next = *head;
+
 		*head = new;
-		(*head)->next = NULL;
-		return (new);
-	}
-/* if ther are more than one linked list, compare and add */
-	old = *head;
-	while (old->next != NULL)
-	{
-		/* if new node is smaller than first node, add */
-		if (new->n < old->n)
-		{
-			new->next = old;
-			*head = new;
-			return (new);
-		}
 
-	/* if there is  one node in linked list,  compare and add*/
-	if ((*head)->next == NULL)
-	{
-		if ((*head)->n < new->n)
-			(*head)->next = new;
-		else
-		{
-			new->next = *head;
-			*head = new;
-		}
-		return (new);
+		return (*head);
 	}
-/* if new node is the same as existing node, 
-   add node if not copmare and add between */
-		if (((new->n > old->n) && (new->n < (old->next)->n)) ||
-		    (new->n == old->n))
+
+	while (old)
+	{
+		if (!((*old).next) || (*old).next->n > number)
 		{
-			new->next = old->next;
-			old->next = new;
+			new = malloc(sizeof(listint_t));
+			if (new == NULL)
+				return (NULL);
+			(*new).n = number;
+			(*new).next = (*old).next;
+			(*old).next = new;
 			return (new);
 		}
-		old = old->next;
+		old = (*old).next;
+		i++;
 	}
-/* if new node is greatest and never inserted, insert now */
-	old->next = new;
-	return (new);
+
+	return (NULL);
 }
