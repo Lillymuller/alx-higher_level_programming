@@ -1,11 +1,16 @@
 #!/usr/bin/python3
+from sys import argv
 if __name__ == "__main__":
-    from sys import argv
-    inputs = argv[1:]
-    size = len(inputs)
-    print("{:d} {:s}{:s}".
-          format(size,
-                 "arguments" if (size) is not 1 else "argument",
-                 "." if (size) is 0 else ":"))
-    for count, args in enumerate(inputs):
-        print("{:d}: {:s}".format(count + 1, args)
+   inputs = len(argv)
+    if inputs > 1:
+        count = 0
+        if inputs > 2:
+            print("{:d} arguments:".format(inputs - 1))
+        else:
+            print("{:d} argument:".format(inputs - 1))
+        for arg in argv:
+            count += 1
+            if count != 1:
+                print("{:d}: {}".format(count - 1, arg))
+    else:
+        print("0 arguments.")
