@@ -8,8 +8,7 @@
 int is_palindrome(listint_t **head)
 {
 	listint_t *new = *head;
-	unsigned int node = 0, i = 0;
-	int data[1024];
+	int cnt = 0;
 
 	/* if a list doesn't exist list it is not a palindrome*/
 	if (head == NULL)
@@ -17,29 +16,16 @@ int is_palindrome(listint_t **head)
 
 	if (*head == NULL) /* empty list is palindrome */
 		return (1);
-	while (new)
+	while (new->next != NULL && new->next->next != NULL)
 	{
-		new = new->next;
-		node += 1;
+		new = new->next->next;
+		cnt += 2;
 	}
 	 /* single node list is palindrome */
-	if (node == 1)
-		return (1);
-
+	if (new->next != NULL)
+		cnt += 1;
 	new = *head;
-	while (new)
-	{
-		data[i++] = new->n;
-		new = new->next;
-	}
-/*checking elements with their mirrored elements*/
-	for (i = 0; i <= (node / 2); i++)
-	{
-		/*checks the value of i is same as (node - i -1)*/
-		if (data[i] != data[node - i - 1])
-			return (0);
-	}
-	return (1);
+	return (palindrome_check(new, cnt));
 }
 
 /**
