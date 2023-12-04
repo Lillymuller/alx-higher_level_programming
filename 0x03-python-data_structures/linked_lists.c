@@ -49,7 +49,7 @@ if (*head == NULL)
 else
 {
 while (current->next != NULL)
-current = current->necurrent->next = new;
+current = current->next;
 current->next = new;
 
 return (new);
@@ -60,6 +60,7 @@ return (new);
  * @head: pointer to list to be freed
  * Return: void
  */
+
 void free_listint(listint_t *head)
 {
 listint_t *current;
@@ -71,3 +72,4 @@ head = head->next;
 free(current);
 }
 }
+
