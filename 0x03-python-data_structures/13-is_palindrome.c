@@ -1,55 +1,70 @@
 #include "lists.h"
 
 /**
- *array_reverse - reverses the content of an array of integers
- * @a: int array to reverse
- * @n: number of elements in the array
- * Return: concatenated string
- */
+*reverse_listint - it reverse a siglr linked list
+*@head: pointer to the first node
+*Return: first node
+*/
 
-void array_reverse(int *ab, int n)
+void reverse_listint(listint_t **head)
 {
-int *start = ab;
-int *end;
-int nods = 0;
+listint_t *end = NULL;
+listint_t *begin = *head;
+listint_t *next = NULL;
 
-end = ab + n - 1;
-for (; start < end; start++, end--)
+while (begin)
 {
-nods = *end;
-*end = *start;
-*start = nods;
+next = begin->next;
+begin->next = end;
+end = begin;
+begin = next;
 }
+*head = end;
 }
 
 /**
- * is_palindrome - Return 1  if palindrome, 0 if not
- * @head: linked list
- * Return: Return 1  if palindrome, 0 if not
- */
+* is_palindrome - checks if the single linked list is a palindrome
+*@head: pinter to the first node
+*Return: 1 for Success, 0 otherwise
+*/
 
 int is_palindrome(listint_t **head)
 {
-int size, *new, *rev;
-listint_t *temp = *head;
+listint_t *node = *head, *rev = *head, *test = *head, *cpy = NULL;
 
-if (!head || !temp)
-return (0);
-if (!temp->next)
-return (1);
-
-new = malloc(sizeof(int *));
-if (!new)
-return (0);
-rev = malloc(sizeof(int *));
+if (*head == NULL || (*head)->next == NULL)
+	return (1);
+while (1)
+{
+rev = rev->next->next;
 if (!rev)
-return (0);
-for (size = 0; temp; temp = temp->next, size++)
-new[size] = temp->n;
+{
+cpy = node->next;
+break;
+}
+if (!rev->next)
+{
+cpy = node->next->next;
+break;
+}
+node = node->next;
+}
+reverse_listint(&cpy);
 
-new = rev;
-array_reverse(rev, size);
-if (new == rev)
+while (cpy && test)
+{
+if (test->n == cpy->n)
+{
+cpy = cpy->next;
+test = test->next;
+}
+else
+{
+return (0);
+}
+}
+if (!cpy)
 return (1);
+
 return (0);
 }
