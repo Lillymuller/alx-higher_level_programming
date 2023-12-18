@@ -1,12 +1,8 @@
 #!/usr/bin/python3
 
 def magic_calculation(a, b):
-    """function that does exactly the same as the given Python bytecode.
+    """function that does exactly the same as the given Python bytecode."""
 
-    Args:
-        a: integer
-        b: integer
-    """
     result = 0
 
     for i in range(1, 3):
