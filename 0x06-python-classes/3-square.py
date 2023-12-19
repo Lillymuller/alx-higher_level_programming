@@ -10,7 +10,7 @@ class Square:
     class Square definition
 
     Args:
-        size (int): size of a side in square
+        size (int): size of a square
 
     Functions:
         __init__(self, size)
@@ -22,7 +22,7 @@ class Square:
         Initializing square
 
         Attributes:
-            __size (int): size of a side of square, defaults to 0 if none
+            __size (int): size of a of square, defaults to 0 if none
         """
         if type(size) is not int:
             raise TypeError("size must be an integer")

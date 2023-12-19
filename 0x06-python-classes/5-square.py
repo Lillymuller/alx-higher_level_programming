@@ -12,7 +12,7 @@ class Square:
     class Square definition
 
     Args:
-        size (int): size of a side in square
+        size (int): size of  square
 
     Functions:
         __init__(self, size)
@@ -24,7 +24,7 @@ class Square:
 
     def __init__(self, size=0):
         """
-        Initializes square
+        Initializing square
 
         Attributes:
             size (int): defaults to 0 if none; don't use __size to call setter

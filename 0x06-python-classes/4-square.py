@@ -11,7 +11,7 @@ class Square:
     class Square definition
 
     Args:
-        size (int): size of a side in square
+        size (int): size of a square
 
     Functions:
         __init__(self, size)

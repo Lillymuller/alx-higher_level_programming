@@ -22,7 +22,7 @@ class Square:
 
     def __init__(self, size=0):
         """
-        Initializes square
+        Initializing square
 
         Attributes:
             size (int): defaults to 0 if none; don't use __size to call setter

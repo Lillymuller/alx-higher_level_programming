@@ -24,7 +24,7 @@ class Node:
 
     def __init__(self, data, next_node=None):
         """
-        Initializes node
+        Initializing node
 
         Attributes:
             data (int): private
