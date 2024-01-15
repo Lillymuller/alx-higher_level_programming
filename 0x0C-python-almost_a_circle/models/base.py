@@ -31,7 +31,7 @@ class Base():
         load_from_file(cls)                 load_from_file_csv(cls)
         create(cls, **dictionary)
     """
-   __nb_objects = 0
+    __nb_objects = 0
 
     def __init__(self, id=None):
         """Initialize id, increment class attribute if no id and set as id"""
