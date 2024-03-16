@@ -1,1 +1,1 @@
-MY First Java Script
+My first JavaScript
