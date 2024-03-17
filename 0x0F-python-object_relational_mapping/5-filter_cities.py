@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Displays all cities of a given state from"""                          
+"""Displays all cities of a given state from"""
 import sys
 import MySQLdb
 
