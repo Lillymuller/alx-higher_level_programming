@@ -1,30 +1,34 @@
 #!/usr/bin/python3
-""" finds a peak in a list of unsorted integers"""
+"""
+Function that finds a peak in a list of unsorted integers
+"""
 
 
 def find_peak(list_of_integers):
-
-    if list_of_integers == []:
+    """
+    Handles elements with 1 or 2 elements.
+    Gets the middle element
+    checks if the middle element is a peak
+    looks the peak that is greater than both left and right
+    """
+    if len(list_of_integers) == 0:
         return None
 
-    size = len(list_of_integers)
-    """Handle lists with one or two elements"""
-    if size == 1:
-        return list_of_integers[0]
-    elif size == 2:
-        return max(list_of_integers)
+    lists = list_of_integers
+    start = 0
+    last = len(lists)-1
 
-    """ Get the middle element"""
-    mid = int(size / 2)
-    peak = list_of_integers[mid]
-    """Check if the middle element is the peak"""
-    if peak > list_of_integers[mid - 1] and peak > list_of_integers[mid + 1]:
-        return peak
+    if lists[start] > lists[start+1]:
+        return lists[start]
+    if lists[last] > lists[last-1]:
+        return lists[last]
 
-    """look for the peak in the left or right middle of the list"""
-    """depending on which is greater than the middle element"""
-
-    if peak < list_of_integers[mid - 1]:
-        return find_peak(list_of_integers[:mid])
+    mid = (start+last)//2
+    if lists[mid-1] < lists[mid] and lists[mid+1] < lists[mid]:
+        return lists[mid]
+    if lists[mid] < lists[mid-1]:
+        return find_peak(lists[start:mid+1])
+    if lists[mid] < lists[mid+1]:
+        return find_peak(lists[mid:last+1])
     else:
-        return find_peak(list_of_integers[mid + 1:])
+        return lists[start]
