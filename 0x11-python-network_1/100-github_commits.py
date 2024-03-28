@@ -12,8 +12,11 @@ from sys import argv
 
 
 if __name__ == "__main__":
-    base_url = "https://api.github.com/repos/{}/{}/commits".format(
-            argv[1], argv[2])
+    base_url = "https://api.github.com/repos/"
+    repo = argv[1]
+    owner = argv[2]
+    url = base_url + owner + "/" + repo + "/commits"
+
     try:
         r = requests.get(url)
         r.raise_for_status()
