@@ -1,6 +1,9 @@
 #!/usr/bin/python3
 """
 Uses GitHub API to show GitHub ID based on credentials
+HTTPBasicAuth transmits username, password embedded directly in HTTP
+Base64 is encoding used in HTTPBasicAuth, it should be used with HTTPS
+
 Args:
 - url
 - author name
