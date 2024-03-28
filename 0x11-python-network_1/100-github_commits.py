@@ -20,6 +20,9 @@ if __name__ == "__main__":
 
         data = response.json()
         for com in data:
+            """ Sha referce to unique identifier (hash) for the commit
+            The code prints a colon followed by new space after SHA
+            """
             print(commit.get('sha'), end=': ')
             print(commit.get('commit', {}).get('author', {}).get(
                 'name', '(unknown)'))
