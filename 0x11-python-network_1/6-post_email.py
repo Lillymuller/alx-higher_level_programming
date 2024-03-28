@@ -10,6 +10,6 @@ from sys imports argv
 
 if __name__ == "__main__":
     url = argv[1]
-    load = {'email': argv[2]}
-    res = requests.post(url, data=load)
-    print(res.text)
+    load = {"email": argv[2]}
+    r = requests.post(url, data=load)
+    print(r.text)
