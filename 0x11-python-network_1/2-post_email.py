@@ -8,7 +8,7 @@ import urllib.parse
 from sys import argv
 
 
-if __name__ == "__main__"
+if __name__ == "__main__":
 """Sends Post request to the given URL with provided Email
 Args: 
     url: the url to send the request to
