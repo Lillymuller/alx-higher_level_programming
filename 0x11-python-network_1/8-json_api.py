@@ -21,11 +21,6 @@ if __name__ == "__main__":
 
 url = f"http://0.0.0.0:5000/search_user?=q{q}"
 try:
-    response = requests.post(url)
-    response.raise_for_status()
-except requests.rxceptions.RequestException as e:
-    print(f"Error sending request: {e}")
-try:
     data = responce.json()
 except json.JSONDecodeError:
     print("Not a Vaild Json")
