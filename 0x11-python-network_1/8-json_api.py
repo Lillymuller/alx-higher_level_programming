@@ -24,5 +24,5 @@ try:
         print("No result")
     else:
         print(f"[{data.get('id')}] {data.get('name')}")
-except json.JSONDecodeError:
+except ValueError:
     print("Not a Vaild Json")
