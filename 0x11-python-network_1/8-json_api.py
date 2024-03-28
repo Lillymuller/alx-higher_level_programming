@@ -1,6 +1,12 @@
 #!/usr/bin/python3
 """
 sends a POST request to http://0.0.0.0:5000/search_user with parameter
+Args:
+    q: query
+    argv: arguments
+Return:
+    Not a valid JSON if the JSON is invalid
+    No result if the JSON is empty
 """
 import requests
 from sys import argv
