@@ -17,10 +17,11 @@ if __name__ == "__main__":
     url = argv[1]
     try:
         response = requests.get(url)
-        response.raise_for_status()
+         if response.status_code >= 400:
+             response.raise_for_status()
         print(response.text)
     except requests.exceptions.RequestException as e:
         err = responce.status_code
-        print(f"Error code: {err if response else 'Failed to connect'}")
+        print(f"Error code: {err if err else 'Failed to connect'}")
     except Exception as e:
         print(f"Unexpected error: {e}")
