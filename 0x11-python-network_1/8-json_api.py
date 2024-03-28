@@ -2,10 +2,10 @@
 """
 Sends a POST request to http://0.0.0.0:5000/search_user with parameter.
 Args:
-argv
+- argv
 Return:
-Print 'Not a valid JSON' if the JSON is invalid
-Print 'No result' if the JSON is empty
+- Print 'Not a valid JSON' if the JSON is invalid
+- Print 'No result' if the JSON is empty
 """
 import requests
 from sys import argv
@@ -24,5 +24,5 @@ if __name__ == "__main__":
             print("No result")
         else:
             print(f"[{data.get('id')}] {data.get('name')}")
-    except ValueError:
+    except json.JSONDecodeError:
         print("Not a Vaild Json")
