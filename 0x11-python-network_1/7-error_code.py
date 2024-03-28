@@ -11,8 +11,8 @@ from sys import argv
 
 
 if __name__ == "__main__":
-    res = requests.get(argv[1])
-    if res.status_code >= 400:
-        print(f"Error: {res.status_code}")
+    r = requests.get(argv[1])
+    if r.status_code >= 400:
+        print(f"Error: {r.status_code}")
     else:
-        print(res.text)
+        print(r.text)
