@@ -12,8 +12,8 @@ from sys import argv
 
 
 if __name__ == "__main__":
-    base_url = "https://api.github.com/repos/{}/{}/commits".format(argv[1], argv[2])
-
+    base_url = "https://api.github.com/repos/{}/{}/commits".format(
+            argv[1], argv[2])
     try:
         r = requests.get(url)
         r.raise_for_status()
@@ -21,8 +21,8 @@ if __name__ == "__main__":
         data = response.json()
         for com in data:
             print(commit.get('sha'), end=': ')
-            print(commit.get('commit', {}).get('author', {}).
-                    get('name', '(unknown)'))
+            print(commit.get('commit', {}).get('author', {}).get(
+                'name', '(unknown)'))
     except requests.exceptions.RequestException as e:
         print(f"Error: {e}")
     except KeyError:
