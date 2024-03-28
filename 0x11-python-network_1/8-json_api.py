@@ -11,20 +11,19 @@ No result if the JSON is empty
 import requests
 from sys import argv
 
-
 if __name__ == "__main__":
-    """Check for arguments and set the q param"""
     if  len(argv) > 1:
-        q = argv[1]
+        letter = argv[1]
     else:
-        q=""
+        letter=""
 
-url = f"http://0.0.0.0:5000/search_user?=q{q}"
+send = {"q": letter}
+res = requests.post("http://0.0.0.0:5000/search_user", data=send)
 try:
     data = responce.json()
+    if not data:
+        print("No result")
+    else:
+        print(f"[{data.get('id')}] {data.get('name')}")
 except json.JSONDecodeError:
     print("Not a Vaild Json")
-if not data:
-    print("No result")
-for user in data:
-    print(f"[{user['id']}] {user['name']}")
