@@ -9,10 +9,9 @@ from sys import argv
 
 if __name__ == "__main__":
     url = argv[1]
-    r = requests.get(url)
-    """check if the status code is greater or equal to 400"""
-    if r.status_code >= 400
-    print(f"Error: {r.status_code}")
-else:
-    print(r.text)
+    res = requests.get(url)
+    if res.status_code >= 400:
+        print(f"Error: {res.status_code}")
+    else:
+        print(res.text)
 
