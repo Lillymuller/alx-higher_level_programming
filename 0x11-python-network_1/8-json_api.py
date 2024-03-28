@@ -19,7 +19,7 @@ if __name__ == "__main__":
     send = {"q": l}
     res = requests.post("http://0.0.0.0:5000/search_user", data=send)
     try:
-        data = response.json()
+        data = res.json()
         if not data:
             print("No result")
         else:
