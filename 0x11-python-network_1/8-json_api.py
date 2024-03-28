@@ -13,9 +13,9 @@ from sys import argv
 
 if __name__ == "__main__":
     if  len(argv) == 1:
-        l =""
+        l = ""
     else:
-        l= argv[1]
+        l = argv[1]
     send = {"q": l}
     res = requests.post("http://0.0.0.0:5000/search_user", data=send)
     try:
