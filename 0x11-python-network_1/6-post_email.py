@@ -5,7 +5,7 @@ sends a POST request to the passed URL with the email parameter
 And displays content
 """
 import requests
-from sys imports argv
+from sys import argv
 
 
 if __name__ == "__main__":
