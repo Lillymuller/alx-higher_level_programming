@@ -1,22 +1,22 @@
 #!/usr/bin/python3
 """
-sends a POST request to http://0.0.0.0:5000/search_user
-with the letter as a parameter
+sends a POST request to http://0.0.0.0:5000/search_user with parameter
 """
 import requests
 from sys import argv
 
 
-if __name__ == "__main__"
-"""Check for arguments and set the q param"""
-if  len(argv) > 1:
-    q = argv[1]
-else:
-    q=""
+if __name__ == "__main__":
+    """Check for arguments and set the q param"""
+    if  len(argv) > 1:
+        q = argv[1]
+    else:
+        q=""
+
 """Build the URL with query"""
 url = f"http://0.0.0.0:5000/search_user?=q{q}"
 
-"""Snd a Post Request"""
+"""Send a Post Request"""
 try:
     response = requests.post(url)
     response.raise_for_status()
@@ -32,5 +32,6 @@ except json.JSONDecodeError:
 """check for empty responses"""
 if not data:
     print("No result")
+
 for user in data:
     print(f"[{user['id']}] {user['name']}")
