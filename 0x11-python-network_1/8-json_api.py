@@ -1,8 +1,7 @@
 #!/usr/bin/python3
 """
-sends a POST request to http://0.0.0.0:5000/search_user with parameter
+Sends a POST request to http://0.0.0.0:5000/search_user with parameter
 Args:
-q
 argv
 Return:
 Not a valid JSON if the JSON is invalid
@@ -13,14 +12,14 @@ from sys import argv
 
 if __name__ == "__main__":
     if  len(argv) < 2:
-        letter = argv[1]
+        l = argv[1]
     else:
-        letter=""
+        l=""
 
-send = {"q": letter}
+send = {"q": l}
 res = requests.post("http://0.0.0.0:5000/search_user", data=send)
 try:
-    data = responce.json()
+    data = response.json()
     if not data:
         print("No result")
     else:
