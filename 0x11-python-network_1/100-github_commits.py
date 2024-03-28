@@ -9,9 +9,8 @@ import requests
 from sys import argv
 
 
-base_url = "https://api.github.com/repos/{}/{}/commits/latest"
-
 if __name__ == "__main__":
+    base_url = "https://api.github.com/repos/{}/{}/commits/latest"
     owner = argv[1]
     repo = argv[2]
 
