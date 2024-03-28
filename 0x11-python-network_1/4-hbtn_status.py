@@ -1,17 +1,14 @@
 #!/usr/bin/python3
 """Python script that fetches https://alx-intranet.hbtn.io/status"""
-import urllib.request
+import requests
 
 
 if __name__ == "__main__":
     """Fetch status form the given URL and display it's content"""
-    with urllib.request.urlopen("https://alx-intranet.hbtn.io/status") as response:
-        html = response.read()
+    r = requests.get("https://alx-intranet.hbtn.io/status")
         """printing the body content"""
         print("Body response:")
         """lets check the body type in bytes"""
-        print(f"\t- type: {type(body)}")
+        print(f"\t- type: {type(r.text)}")
         """the raw content unreadable for text data"""
-        print(f"\t- content: {body}")
-        """the readable decoded content using UTF-8 encoding"""
-        print(f"\t- utf-8 content: {body.decode('utf-8')}") 
+        print(f"\t- content: {r.text}")
