@@ -4,25 +4,25 @@ Takes 2 arguments in order to solve this challenge.
 Args:
 - repository name
 - owner name
-- 
+Return:
+- latest 10 commits
 """
 import requests
 from sys import argv
 
 
 if __name__ == "__main__":
-    base_url = "https://api.github.com/repos/{}/{}/commits/latest"
-    owner = argv[1]
-    repo = argv[2]
+    base_url = "https://api.github.com/repos/{}/{}/commits".format(argv[1], argv[2])
 
-    url = base_url.format(owner, repo)
     try:
         r = requests.get(url)
         r.raise_for_status()
 
         data = response.json()
-        commit_message = data["commit"]["message"]
-        print(f"Commit message for {owner}/{repo}: {commit_message}")
+        for com in data:
+            print(commit.get('sha'), end=': ')
+            print(commit.get('commit', {}).get('author', {}).
+                    get('name', '(unknown)'))
     except requests.exceptions.RequestException as e:
         print(f"Error: {e}")
     except KeyError:
