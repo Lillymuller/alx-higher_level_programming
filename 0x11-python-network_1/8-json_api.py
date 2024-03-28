@@ -20,9 +20,9 @@ if __name__ == "__main__":
     res = requests.post("http://0.0.0.0:5000/search_user", data=send)
     try:
         data = res.json()
-        if data:
-            print(f"[{data.get('id')}] {data.get('name')}")
-        else:
+        if not data:
             print("No result")
+        else:
+            print(f"[{data.get('id')}] {data.get('name')}")
     except json.JSONDecodeError:
         print("Not a Vaild Json")
