@@ -17,8 +17,8 @@ if __name__ == "__main__":
     url = argv[1]
     try:
         response = requests.get(url)
-         if response.status_code >= 400:
-             response.raise_for_status()
+        if response.status_code >= 400:
+            response.raise_for_status()
         print(response.text)
     except requests.exceptions.RequestException as e:
         err = responce.status_code
