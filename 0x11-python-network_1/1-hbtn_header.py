@@ -5,6 +5,8 @@ from os import argv
 
 
 if __name__ == "__main__":
-    request = urllib.request.Request(argv[1])
+    url = argv[1]
+
+    request = urllib.request.Request(url)
     with urllib.request.urlopen(request) as response:
-        print(response.getheader['X-Request-Id'], None)
+        print(response.getheader['X-Request-Id'])
