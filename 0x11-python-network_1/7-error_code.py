@@ -20,7 +20,7 @@ if __name__ == "__main__":
         response.raise_for_status()
         print(response.text)
     except requests.exceptions.RequestException as e:
-        print(f"Error code: {responce.status_code}" if response
-                else "Error: Failed to connect")
+        print(f"Error code: {responce.status_code if response else
+                'Failed to connect'}")
     except Exception as e:
         print(f"Unexpected error: {e}")
