@@ -12,7 +12,7 @@ import requests
 from sys import argv
 
 if __name__ == "__main__":
-    if  len(argv) > 1:
+    if  len(argv) < 2:
         letter = argv[1]
     else:
         letter=""
