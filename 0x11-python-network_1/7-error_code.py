@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-If the HTTP status code is greater than or equal to 400, print: Error code
+If the HTTP status code is greater than or equal to 400 print Error code
 """
 import requests
 from sys import argv
