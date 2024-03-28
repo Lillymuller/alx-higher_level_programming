@@ -25,14 +25,11 @@ try:
     response.raise_for_status()
 except requests.rxceptions.RequestException as e:
     print(f"Error sending request: {e}")
-
-    try:
-        data = responce.json()
-    except json.JSONDecodeError:
+try:
+    data = responce.json()
+except json.JSONDecodeError:
     print("Not a Vaild Json")
-
-    if not data:
-        print("No result")
-
-        for user in data:
-            print(f"[{user['id']}] {user['name']}")
+if not data:
+    print("No result")
+for user in data:
+    print(f"[{user['id']}] {user['name']}")
