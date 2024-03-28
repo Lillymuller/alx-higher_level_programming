@@ -11,8 +11,17 @@ from sys import argv
 
 
 if __name__ == "__main__":
-    r = requests.get(argv[1])
-    if r.status_code >= 400:
-        print(f"Error: {r.status_code}")
-    else:
-        print(r.text)
+    if len(argv) < 2:
+        print("Error: Please provide URL")
+
+    url = argv[1]
+    try:
+        response = requests.get(url)
+        response.raise_for_status()
+        print(response.text)
+
+    except requests.exceptions.RequestException as e:
+        print(f"Error code: {responce.status_code}" if response
+                else "Error: Failed to connect")
+    except Exception as e:
+        print(f"Unexpected error: {e}")
