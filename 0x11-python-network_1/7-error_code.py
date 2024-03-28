@@ -19,7 +19,6 @@ if __name__ == "__main__":
         response = requests.get(url)
         response.raise_for_status()
         print(response.text)
-
     except requests.exceptions.RequestException as e:
         print(f"Error code: {responce.status_code}" if response
                 else "Error: Failed to connect")
