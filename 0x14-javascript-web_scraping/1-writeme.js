@@ -1,4 +1,4 @@
-#!/urs/bin/node
+#!/usr/bin/node
 
 let fpath = process.argv[2];
 let text = process.argv[3];
