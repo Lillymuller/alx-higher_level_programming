@@ -5,6 +5,7 @@ filesys.readFile(process.argv[2], 'utf-8',
     if (error) {
       console.log(error);
       return;
-    }
+    } else {
     console.log(body);
+    }
   });
